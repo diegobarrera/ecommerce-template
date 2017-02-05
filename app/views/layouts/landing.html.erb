@@ -1,0 +1,29 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html class="ie ie6" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 7 ]> <html class="ie ie7" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 8 ]> <html class="ie ie8" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if IE 9 ]> <html class="ie ie9" lang="<%= I18n.locale %>"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="<%= I18n.locale %>">
+    <!--<![endif]-->
+    <head data-hook="inside_head">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <%= render partial: 'spree/shared/head' %>
+    </head>
+    <body class="<%= body_class %>" id="<%= @body_id || 'default' %>" data-hook="body">
+        <%= render partial: 'spree/shared/google_analytics.js' %>
+        <%= render partial: 'spree/shared/header' %>
+
+        <div id="content" data-hook>
+            <%= flash_messages %>
+            <div class="col-md-12">
+              <%= yield %>
+            </div>
+        </div>
+
+        <%= yield :templates %>
+        <% # render partial: 'footer/footer' %>
+    </body>
+</html>
